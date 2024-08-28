@@ -1,0 +1,12 @@
+Q1) We discussed combining outputs with shift and bitwise OR in section 2.2.1. Can we “add” (+) different outputs instead of performing bitwise OR operations (section 3 of code inside the main loop)? Why?
+
+A1) The statements outputRegister |= 0x00000001 and outputRegister |= (0x00000001<<1) are the same as the outputRegister += 1 and outputRegister +=2. This is because the left side is at the 0 at the bit level and the right side is one and since no carry is created, there is no change in the results.
+
+Q2) Do a brief research (perhaps on the web) on Bang-bang (Hysteresis) controllers in relation to equations 4 and 5. Answer the following questions in a few words:
+Q2.a) Which part of equations 4 and 5 represents “hysteresis” in our system? How much is the value of “hysteresis”?
+
+A2.a) The hysteresis value is 0.3 which is the value that is being added and subtracted accordingly in equation 4 and 5.
+
+Q2.b) Why do we need hysteresis in our system? What will happen if its value is zero?
+
+A2.b) If the hysteresis value is zero, the system will keep turning on and off the switches to deal with the fluctuating temperature unless the measured value is exactly the same as the desired value. Hence, we need hysteresis in our system to prevent this constant fluctuations that may damage the system.
